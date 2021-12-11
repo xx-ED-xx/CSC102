@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<script>
+            // Coss, Edward 11/28/2021 
+            // The script tags lets the browser know we are in JavaScript and not HTML    
+            // Create function for audio, takes no parameters
+function audio(){
+    // Set variable that becomes the audio (Scotty Aknowledging)
+    var myAudio = new Audio('https://www.mediacollege.com/downloads/sound-effects/star-trek/tos/scotty/Scotty_ayesir.mp3?raw=true');
+    // Audio player
+    myAudio.play();
+}
+</script>
+<html lang="en">
+<head>
+    <!-- Have a photo in the website -->
+    <img src="https://www.gannett-cdn.com/-mm-/b1a04a3e30a1c0437f0e800d97ba26e33e18627d/c=0-0-2713-1533/local/-/media/2016/09/05/USATODAY/USATODAY/636086596256738838-XXX-Scotty2.JPG?width=660&height=373&fit=crop&format=pjpg&auto=webp?raw=true">
+    <title>Audio!</title>
+    <h1 style="color:green"> <b>Scotty </b> </h1>
+</head>
+<!-- Change the background color -->
+<body style="background-color:slategrey">
+    <!-- Create a button that calls the function to play the audio -->
+    <button id="audioButton" type="buton" onclick="audio()">Start</button>
+</body>
+</html>
