@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            body {
+            background-image: url('https://www.pe.com/wp-content/uploads/2018/01/rpe-bus-bestlaw-warning.jpg?w=894');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+          }
+        </style>
+        <script>
+            // Coss, Edward 12/05/2021 
+            // Mission Control
+            // The script tags lets the browser know we are in JavaScript and not HTML
+        function LogOn()                                   
+        {
+            //Create variables that are equal to the user input on the form
+            var first_name = document.forms["LOGON"]["First_name"];              
+            var last_name = document.forms["LOGON"]["Last_name"];   
+            var badge_number = document.forms["LOGON"]["Badge_number"];
+            
+            //Verify whether the length of the full name is less than 20
+            if (first_name.value.length + last_name.value.length > 20)                                 
+            {
+                //Pop up if full name is greater than 20
+                window.alert("Re-Enter Full Name.");
+                //Does not allow user to move forward and reselects first_name
+                first_name.focus();
+                return false;
+            }
+            //Ensure that first name and last name are actually filled
+            if(first_name.value == "" || last_name.value == ""){
+                //Pop up that makes you enter name
+                window.alert("Re-Enter Full Name.");
+                //Will not allow user to move forward unless fulled
+                first_name.focus();
+                return false;
+            }
+            //Verify if badge_number is indeed a number
+           if(isNaN(badge_number.value)){
+               //Pop up stating to enter badge number
+               window.alert("Re-Enter Badge Number");
+               //Will not allow user to move forward until badge number is fixed
+               badge_number.focus();
+               return false;
+           }
+           //Ensure that badge number has 3 or less digits
+           if(badge_number.value >= 1000){
+               //Pop up advising to re enter badge number
+               window.alert("Re-Enter Badge Number");
+               //Will not allow user to move forward until fixed
+               badge_number.focus();
+               return false;
+           }
+           //Ensure badge_number is not an empty field
+           if(badge_number.value == ""){
+               //Pop up advising to re enter badge number
+               window.alert("Re-Enter Badge Number");
+               //Will not allow user to move forward until fixed
+               badge_number.focus();
+               return false;
+           }
+           window.alert(first_name.value + " " + last_name.value +"\n" + badge_number.value)
+            return true;
+        }
+        </script>
+          
+        
+        <body>
+        <h1 style="text-align: center"> Operator Log In </h1>        
+        
+        <!-- Name of form to access it in JS. Also runs function upon pressing button -->  
+        <form name="LOGON" action="/submit.php" onsubmit="return LogOn()" method="post"> 
+        
+             <!-- Create the forms that user inputs info on --> 
+            <p>First Name: <input type="text" size=65 name="First_name"> </p><br>       
+            <p> Last Name: <input type="text" size=65 name="Last_name">  </p><br>
+            <p>Badge Number: <input type="text" size=65 name="Badge_number">  </p><br>  
+            
+            
+            <p><input type="submit" value="send" name="Submit">     
+                <input type="reset" value="Reset" name="Reset">  
+            </p>         
+        </form>
+        </body>
+        </html>
